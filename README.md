@@ -91,7 +91,7 @@ Caso encontre algum problema, confira se:
 ## 💻 Links úteis  
 
 - [Figma do projeto](https://www.figma.com/design/nhdLvVg5yMK7iBodzgKUKO/Untitled?node-id=0-1&t=MXuPlAnppIyo9n2p-1)
-- [Backend do Nekoda](https://github.com/seu-usuario/nekoda-backend)  
+- [Backend do Nekoda](https://github.com/oRdv/Nekoda_Back)  
 - [Documentação do React](https://reactjs.org/docs/getting-started.html)  
 - [Documentação do Next.js](https://nextjs.org/docs)  
 - [Documentação do Tailwind CSS](https://tailwindcss.com/docs)  
