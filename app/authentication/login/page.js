@@ -1,47 +1,70 @@
 'use client';
+
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import Image from "next/image";
 import gato from "@/public/img/gato.png";
+import CryptoJS from "crypto-js";
 
 export default function LoginPage() {
   const router = useRouter();
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [formData, setFormData] = useState({ email: '', senha: '' });
+  const [error, setError] = useState('');
+  const [showPassword, setShowPassword] = useState(false);
 
-  const handleLogin = async (e) => {
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setFormData({ ...formData, [name]: value });
+  };
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
+
+  const loginValidation = async (e) => {
     e.preventDefault();
-  
-    try {
-      const response = await fetch("http://localhost:8080/v1/nekoda/users", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email,
-          password,
-        }),
-      });
-  
-      const result = await response.json();
-  
-      if (response.ok) {
-        console.log("Login realizado com sucesso:", result);
-  
-        // Armazene informações no localStorage e redirecione
-        localStorage.setItem("userProfile", JSON.stringify(result.userProfile));
-        router.push("/dashboard");
-      } else {
-        setError(result.message || "Credenciais inválidas.");
+    const { email, senha } = formData;
+
+    const hashedPassword = CryptoJS.MD5(senha).toString();
+
+    const getUsers = async () => {
+      const url = "http://localhost:8080/v1/nekoda/users";
+      try {
+        const response = await fetch(url);
+        const data = await response.json();
+        return data;
+      } catch (error) {
+        alert('Houve um problema com a solicitação de login.');
+        return [];
       }
-    } catch (error) {
-      console.error("Erro ao fazer login:", error);
-      setError("Erro ao se conectar ao servidor.");
+    };
+
+    const users = await getUsers();
+    let isUserValid = false;
+
+    if (users && users.users) {
+      users.users.forEach((user) => {
+        if (user.email === email && user.password === hashedPassword) {
+          isUserValid = true;
+
+          localStorage.setItem(
+            "userProfile",
+            JSON.stringify({
+              id: user.id,
+              name: user.name,
+              email: user.email,
+            })
+          );
+
+          router.push("/home");
+        }
+      });
+    }
+
+    if (!isUserValid) {
+      setError("Credenciais inválidas. Tente novamente.");
     }
   };
-  
 
   return (
     <div className="flex h-screen bg-white">
@@ -69,7 +92,7 @@ export default function LoginPage() {
           <span className="text-[120px]">Welcome</span>
           <span className="block text-[48px] text-right">BACK</span>
         </h1>
-        <form className="mt-8 w-full max-w-lg" onSubmit={handleLogin}>
+        <form className="mt-8 w-full max-w-lg" onSubmit={loginValidation}>
           {error && (
             <p className="text-red-500 text-[18px] mb-4">{error}</p>
           )}
@@ -83,24 +106,39 @@ export default function LoginPage() {
             <input
               type="email"
               id="email"
-              value={email}
-              onChange={(e) => setEmail(e.target.value)}
+              name="email"
+              value={formData.email}
+              onChange={handleInputChange}
               className="w-[656px] h-[95px] px-4 text-black text-[20px] border-[5px] border-[#7C1E1E] rounded-[20px] focus:outline-none focus:border-[#8a2828]"
               required
             />
           </div>
           <div className="mb-6">
             <label
-              htmlFor="password"
-              className="block text-black text-[20px] font-bold mb-2"
+              htmlFor="senha"
+              className="block text-black text-[20px] font-bold mb-2 flex items-center"
             >
               Senha
+              <button
+                type="button"
+                onClick={togglePasswordVisibility}
+                className="ml-2 text-[#7C1E1E] text-[20px]"
+                style={{
+                  border: "none",
+                  background: "none",
+                  cursor: "pointer",
+                  padding: "0",
+                }}
+              >
+                {showPassword ? "👁️" : "👁️‍🗨️"}
+              </button>
             </label>
             <input
-              type="password"
-              id="password"
-              value={password}
-              onChange={(e) => setPassword(e.target.value)}
+              type={showPassword ? "text" : "password"}
+              id="senha"
+              name="senha"
+              value={formData.senha}
+              onChange={handleInputChange}
               className="w-[656px] h-[95px] px-4 text-black text-[20px] border-[5px] border-[#7C1E1E] rounded-[20px] focus:outline-none focus:border-[#8a2828]"
               required
             />
