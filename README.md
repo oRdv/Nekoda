@@ -1,6 +1,6 @@
 ---
 
-# 🎨 Nekoda Frontend  
+# 🐱 Nekoda Frontend  
 
 Bem-vindo ao frontend do **Nekoda**! 🌟  
 Este projeto foi desenvolvido com [React](https://reactjs.org/), [Next.js](https://nextjs.org/), e estilizado com [Tailwind CSS](https://tailwindcss.com/). Ele complementa o [backend do Nekoda](https://github.com/seu-usuario/nekoda-backend), criando uma interface intuitiva e moderna para o usuário.  
