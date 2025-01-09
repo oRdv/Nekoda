@@ -1,38 +1,95 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+---
 
-## Getting Started
+# 🎨 Nekoda Frontend  
 
-First, run the development server:
+Bem-vindo ao frontend do **Nekoda**! 🌟  
+Este projeto foi desenvolvido com [React](https://reactjs.org/), [Next.js](https://nextjs.org/), e estilizado com [Tailwind CSS](https://tailwindcss.com/). Ele complementa o [backend do Nekoda](https://github.com/seu-usuario/nekoda-backend), criando uma interface intuitiva e moderna para o usuário.  
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+Certifique-se de seguir os passos abaixo para configurar tudo corretamente. 🚀  
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+---
 
-You can start editing the page by modifying `app/page.js`. The page auto-updates as you edit the file.
+## 🛠️ Pré-requisitos  
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+Antes de começar, tenha certeza de que você tem instalado:  
+- **Node.js** (v16 ou superior/estou usando o 22 versão LTS, talvez não funcione com outras versões) 🌳  
+- **NPM** ou outro gerenciador de pacotes compatível (como Yarn, PNPM, ou Bun) 📦  
+- O [backend do Nekoda](https://github.com/seu-usuario/nekoda-backend) configurado e rodando.  
 
-## Learn More
+💡 **Nota importante:**  
+O frontend se comunica diretamente com o backend. Certifique-se de que as portas entre eles não estão em conflito. Por padrão:  
+- **Backend**: Porta `8080`  
+- **Frontend**: Porta `3000`  
 
-To learn more about Next.js, take a look at the following resources:
+---
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## 🔧 Configuração  
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Clone o repositório**  
+   Primeiro, clone o projeto na sua máquina local:  
 
-## Deploy on Vercel
+   ```bash
+   git clone https://github.com/oRdv/Nekoda.git
+   cd Nekoda
+   ```  
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Instale as dependências**  
+   No diretório do projeto, execute o seguinte comando no terminal:  
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
-# Nekoda
-# Nekoda
+   ```bash
+   npm install
+   ```
+   ou
+     ```bash
+   npm i
+   ```
+
+   Isso instalará todas as bibliotecas necessárias para o funcionamento do frontend.  
+
+4. **Verifique as configurações**  
+   - Certifique-se de que o **backend do Nekoda** está rodando.  
+   - Garanta que as portas entre o frontend e o backend não estão em conflito.  
+
+---
+
+## 🚀 Como rodar o projeto  
+
+1. Após instalar as dependências, inicie o servidor de desenvolvimento com o comando:  
+
+   ```bash
+   npm run dev
+   ```  
+
+2. Abra seu navegador e acesse:  
+   [http://localhost:3000](http://localhost:3000)  
+
+3. Agora você verá o frontend do Nekoda em funcionamento! 🎉  
+
+---
+
+## 📚 Sobre o projeto  
+
+Este frontend foi  para oferecer uma experiência incrível para o usuário. Utilizamos bibliotecas modernas do ecossistema React, como:  
+- **Next.js**: Para renderização no lado do servidor e geração de páginas estáticas.  
+- **Tailwind CSS**: Para estilização rápida e eficiente.  
+
+Além disso, ele foi integrado ao backend do Nekoda para criar, editar e visualizar posts com facilidade.  
+
+---
+
+## 🤔 Dúvidas ou problemas?  
+
+Caso encontre algum problema, confira se:  
+- O backend está rodando corretamente.  
+- As dependências foram instaladas com `npm install`.  
+- Não há conflito entre as portas do backend e frontend.
+- Ou me mande uma mensagem no Linkedin que está no perfil.
+
+---
+
+## 💻 Links úteis  
+
+- [Backend do Nekoda](https://github.com/seu-usuario/nekoda-backend)  
+- [Documentação do React](https://reactjs.org/docs/getting-started.html)  
+- [Documentação do Next.js](https://nextjs.org/docs)  
+- [Documentação do Tailwind CSS](https://tailwindcss.com/docs)  
