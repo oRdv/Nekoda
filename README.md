@@ -84,6 +84,7 @@ Caso encontre algum problema, confira se:
 - As dependências foram instaladas com `npm install`.  
 - Não há conflito entre as portas do backend e frontend.
 - Ou me mande uma mensagem no Linkedin que está no perfil.
+- Certifique-se se está na pasta do arquivo, pois se não estiver, ele não rodará.
 
 ---
 
